@@ -32,25 +32,25 @@ class DatabaseSeeder extends Seeder
 
 
         \App\Models\SubActivityType::factory()->create([
-            'typeName' => 'Mengerjakan Tugas',
+            'type_name' => 'Mengerjakan Tugas',
         ]);
         \App\Models\SubActivityType::factory()->create([
-            'typeName' => 'Menonton Video',
+            'type_name' => 'Menonton Video',
         ]);
         \App\Models\SubActivityType::factory()->create([
-            'typeName' => 'Membaca E-Book',
+            'type_name' => 'Membaca E-Book',
         ]);
 
 
 
         \App\Models\ClassCategory::factory()->create([
-            'categoryName' => 'Mobile',
+            'category_name' => 'Mobile',
         ]);
         \App\Models\ClassCategory::factory()->create([
-            'categoryName' => 'Cloud Computing',
+            'category_name' => 'Cloud Computing',
         ]);
         \App\Models\ClassCategory::factory()->create([
-            'categoryName' => 'Machine Learning',
+            'category_name' => 'Machine Learning',
         ]);
 
 

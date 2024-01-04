@@ -17,9 +17,9 @@ class ActivityFactory extends Factory
     public function definition(): array
     {
         return [
-            'classID' => fake()->numberBetween(1, 10),
-            'activityNumber' => fake()->numberBetween(1,4),
-            'activityName' => fake()->sentence(mt_rand(3, 8))
+            'class_id' => fake()->numberBetween(1, 10),
+            'activity_number' => fake()->numberBetween(1,4),
+            'activity_name' => fake()->sentence(mt_rand(3, 8))
         ];
     }
 }

@@ -17,8 +17,8 @@ class UserClassFactory extends Factory
     public function definition(): array
     {
         return [
-            "userID"=>fake()->numberBetween(1,3),
-            "classID"=>fake()->numberBetween(1,10),
+            "user_id"=>fake()->numberBetween(1,3),
+            "class_id"=>fake()->numberBetween(1,10),
             "progress"=>fake()->numberBetween(0,100),
         ];
     }

@@ -14,9 +14,9 @@ return new class extends Migration
         Schema::create('activities', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->foreignId("classID");
-            $table->integer("activityNumber");
-            $table->string("activityName");
+            $table->foreignId("class_id");
+            $table->integer("activity_number");
+            $table->string("activity_name");
         });
     }
 

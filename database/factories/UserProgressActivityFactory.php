@@ -17,8 +17,8 @@ class UserProgressActivityFactory extends Factory
     public function definition(): array
     {
         return [
-            "userID"=>fake()->numberBetween(1,3),
-            "subActivituID"=>fake()->numberBetween(1,50),
+            "user_id"=>fake()->numberBetween(1,3),
+            "sub_activity_id"=>fake()->numberBetween(1,50),
         ];
     }
 }

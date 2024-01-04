@@ -14,8 +14,8 @@ return new class extends Migration
         Schema::create('class_fasilitators', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->foreignId("classID");
-            $table->foreignId("fasilID");
+            $table->foreignId("class_id");
+            $table->foreignId("fasil_id");
         });
     }
 

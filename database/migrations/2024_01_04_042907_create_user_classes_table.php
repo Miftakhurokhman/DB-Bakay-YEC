@@ -14,8 +14,8 @@ return new class extends Migration
         Schema::create('user_classes', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->foreignId("userID");
-            $table->foreignId("classID");
+            $table->foreignId("user_id");
+            $table->foreignId("class_id");
             $table->float("progress");
             $table->float("rate")->nullable();
             $table->text("ulasan")->nullable();

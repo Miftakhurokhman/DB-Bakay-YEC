@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('sub_activity_types', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->string("typeName");
+            $table->string("type_name");
         });
     }
 

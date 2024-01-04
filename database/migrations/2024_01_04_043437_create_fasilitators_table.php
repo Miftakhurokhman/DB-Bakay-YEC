@@ -14,9 +14,9 @@ return new class extends Migration
         Schema::create('fasilitators', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->string("fasilName");
-            $table->string("fasilPhoto");
-            $table->text("fasilDesc");
+            $table->string("fasil_name");
+            $table->string("fasil_photo");
+            $table->text("fasil_desc");
         });
     }
 

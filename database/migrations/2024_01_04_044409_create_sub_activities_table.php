@@ -14,10 +14,10 @@ return new class extends Migration
         Schema::create('sub_activities', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->integer("activityID");
-            $table->foreignId("typeID");
-            $table->integer("subActivityNumber");
-            $table->string("subActivityName");
+            $table->integer("activity_id");
+            $table->foreignId("type_id");
+            $table->integer("sub_activity_number");
+            $table->string("sub_activity_name");
             $table->string("content");
         });
     }
