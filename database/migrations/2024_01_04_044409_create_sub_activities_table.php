@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->timestamps();
             $table->integer("activityID");
-            $table->integer("typeID");
+            $table->foreignId("typeID");
             $table->integer("subActivityNumber");
             $table->string("subActivityName");
             $table->string("content");

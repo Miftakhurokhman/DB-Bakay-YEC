@@ -16,8 +16,9 @@ class ClassFasilitatorFactory extends Factory
      */
     public function definition(): array
     {
-        return [
-            //
+        return [ 
+            "classID"=>fake()->numberBetween(1,10),
+            "fasilID"=>fake()->numberBetween(1,10),
         ];
     }
 }

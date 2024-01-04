@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('kelas', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->integer("categoryID");
+            $table->foreignId("categoryID");
             $table->string("className");
             $table->text("classDesc");
         });

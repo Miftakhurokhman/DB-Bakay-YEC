@@ -14,8 +14,8 @@ return new class extends Migration
         Schema::create('user_progress_activities', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->integer("userID");
-            $table->integer("subActivituID");
+            $table->foreignId("userID");
+            $table->foreignId("subActivituID");
             $table->string("answer")->nullable();
         });
     }
