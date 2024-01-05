@@ -17,6 +17,7 @@ return new class extends Migration
             $table->foreignId("category_id");
             $table->string("class_name");
             $table->text("class_desc");
+            $table->string("class_thumbnail");
         });
     }
 
