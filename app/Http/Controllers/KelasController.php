@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Kelas;
 use App\Http\Requests\StoreKelasRequest;
 use App\Http\Requests\UpdateKelasRequest;
+use App\Http\Resources\ClassResource;
+use App\Http\Resources\ClassDetailResource;
 
 class KelasController extends Controller
 {
@@ -13,7 +15,8 @@ class KelasController extends Controller
      */
     public function index()
     {
-        //
+        $classes = Kelas::get();
+        return ClassResource::collection($classes);
     }
 
     /**
@@ -35,9 +38,19 @@ class KelasController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Kelas $kelas)
+    public function show($id)
     {
-        //
+        $class = Kelas::findOrFail($id);
+        return new ClassDetailResource(
+            $class->loadMissing(
+                [
+                    'category:id,category_name',
+                    // 'fasil'
+                    'class_fasil:id,class_id,fasil_id',
+                    // 'class_activity:id,class_id,activity_name,activity_number'
+                ]
+            )
+        );
     }
 
     /**

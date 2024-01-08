@@ -1,5 +1,8 @@
 <?php
 
+use App\Http\Controllers\ClassFasilitatorController;
+use App\Http\Controllers\KelasController;
+use App\Models\Kelas;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -14,6 +17,5 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
-});
+Route::get('classes',[KelasController::class, 'index']);
+Route::get('classes/{id}',[KelasController::class, 'show']);
