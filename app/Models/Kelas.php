@@ -31,6 +31,7 @@ class Kelas extends Model
         return $this->hasMany(ClassFasilitator::class, 'class_id', 'id');
     }
 
+
     /**
      * Get all of the class_activoty for the Kelas
      *
