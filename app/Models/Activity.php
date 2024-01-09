@@ -19,4 +19,14 @@ class Activity extends Model
         return $this->belongsTo(Kelas::class, 'class_id', 'id');
     }
 
+    /**
+     * Get all of the comments for the Activity
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function sub_activity()
+    {
+        return $this->hasMany(SubActivity::class, 'activity_id', 'id');
+    }
+
 }

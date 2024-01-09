@@ -26,7 +26,12 @@ class ClassDetailResource extends JsonResource
                     return $fasil;
                 });
             }),
-            'class_activity' => $this->whenLoaded('class_activity')
+            'class_activity' => $this->whenLoaded('class_activity', function() {
+                return collect($this->class_activity)->each(function($sub_activity) {
+                    $sub_activity->sub_activity;
+                    return $sub_activity;
+                });
+            })
         ];
     }
 }
