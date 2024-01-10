@@ -46,7 +46,7 @@ class KelasController extends Controller
                 [
                     'category:id,category_name',
                     'class_fasil:id,class_id,fasil_id',
-                    'class_activity'
+                    'class_activity.sub_activity.type:id,type_name',
                 ]
             )
         );
