@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AuthenticationController;
 use App\Http\Controllers\ClassFasilitatorController;
 use App\Http\Controllers\KelasController;
 use App\Models\Kelas;
@@ -17,5 +18,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('classes',[KelasController::class, 'index']);
-Route::get('classes/{id}',[KelasController::class, 'show']);
+Route::get('/classes',[KelasController::class, 'index'])->middleware(['auth:sanctum']);
+Route::get('/classes/{id}',[KelasController::class, 'show'])->middleware(['auth:sanctum']);
+
+Route::post('/login', [AuthenticationController::class, 'login']);
+Route::get('/logout', [AuthenticationController::class, 'logout'])->middleware(['auth:sanctum']);
+
+Route::get('/me', [AuthenticationController::class, 'me'])->middleware(['auth:sanctum']);
