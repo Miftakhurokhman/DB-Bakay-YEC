@@ -41,4 +41,14 @@ class Kelas extends Model
     {
         return $this->hasMany(Activity::class, 'class_id', 'id');
     }
+
+    /**
+     * Get all of the user_class for the Kelas
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function user_class()
+    {
+        return $this->hasMany(UserClass::class, 'class_id', 'id');
+    }
 }

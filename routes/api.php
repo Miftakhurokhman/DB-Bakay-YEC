@@ -1,10 +1,8 @@
 <?php
 
 use App\Http\Controllers\AuthenticationController;
-use App\Http\Controllers\ClassFasilitatorController;
 use App\Http\Controllers\KelasController;
-use App\Models\Kelas;
-use Illuminate\Http\Request;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -18,10 +16,16 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/classes',[KelasController::class, 'index'])->middleware(['auth:sanctum']);
-Route::get('/classes/{id}',[KelasController::class, 'show'])->middleware(['auth:sanctum']);
+Route::middleware(['auth:sanctum'])->group(function () {
+    Route::get('/user/classes', [UserController::class, 'index']);
+    Route::get('/user/classes/{id}',[UserController::class, 'show'])->middleware('class-user');
+
+    Route::get('/me', [AuthenticationController::class, 'me']);
+    Route::get('/logout', [AuthenticationController::class, 'logout']);
+});
+
+Route::get('/classes',[KelasController::class, 'index']);
+Route::get('/classes/{id}',[KelasController::class, 'show']);
 
 Route::post('/login', [AuthenticationController::class, 'login']);
-Route::get('/logout', [AuthenticationController::class, 'logout'])->middleware(['auth:sanctum']);
 
-Route::get('/me', [AuthenticationController::class, 'me'])->middleware(['auth:sanctum']);

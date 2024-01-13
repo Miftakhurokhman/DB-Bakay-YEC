@@ -20,6 +20,7 @@ class ClassDetailResource extends JsonResource
             'class_name' => $this->class_name,
             'class_desc' => $this->class_desc,
             'category' => $this->whenLoaded('category'),
+            'user_class' => $this->whenLoaded('user_class'),
             'class_fasil' => $this->whenLoaded('class_fasil', function() {
                 return collect($this->class_fasil)->each(function($fasil) {
                     $fasil->fasil;

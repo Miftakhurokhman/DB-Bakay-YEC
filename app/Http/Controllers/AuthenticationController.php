@@ -31,7 +31,7 @@ class AuthenticationController extends Controller
         $request->user()->currentAccessToken()->delete();
     }
 
-    public function me(Request $request) {
+    public function me() {
         return response()->json(Auth::user());
     }
 }

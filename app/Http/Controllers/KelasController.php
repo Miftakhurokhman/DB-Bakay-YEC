@@ -45,8 +45,10 @@ class KelasController extends Controller
             $class->loadMissing(
                 [
                     'category:id,category_name',
-                    'class_fasil:id,class_id,fasil_id',
-                    'class_activity.sub_activity.type:id,type_name',
+                    'user_class'
+                    // 'class_fasil:id,class_id,fasil_id',
+                    // 'class_activity.sub_activity.type:id,type_name',
+                    // 'class_activity.sub_activity.user_progress',
                 ]
             )
         );

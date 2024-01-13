@@ -8,4 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class UserProgressActivity extends Model
 {
     use HasFactory;
+
+    public function sub_activity()
+    {
+        return $this->belongsTo(SubActivity::class, 'sub_activity_id', 'id');
+    }
 }

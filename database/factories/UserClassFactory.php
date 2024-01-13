@@ -19,7 +19,7 @@ class UserClassFactory extends Factory
         return [
             "user_id"=>fake()->numberBetween(1,3),
             "class_id"=>fake()->numberBetween(1,10),
-            "progress"=>fake()->numberBetween(0,100),
+            "progress"=>0,
         ];
     }
 }

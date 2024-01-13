@@ -9,14 +9,13 @@ class SubActivity extends Model
 {
     use HasFactory;
 
-
-    /**
-     * Get the user associated with the SubActivity
-     *
-     * @return \Illuminate\Database\Eloquent\Relations\HasOne
-     */
     public function type()
     {
         return $this->belongsTo(SubActivityType::class, 'type_id', 'id');
+    }
+
+    public function user_progress()
+    {
+        return $this->hasMany(UserProgressActivity::class, 'sub_activity_id', 'id');
     }
 }
