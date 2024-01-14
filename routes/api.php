@@ -17,6 +17,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::middleware(['auth:sanctum'])->group(function () {
+
     Route::get('/user/classes', [UserController::class, 'index']);
     Route::get('/user/classes/{id}',[UserController::class, 'show'])->middleware('class-user');
 

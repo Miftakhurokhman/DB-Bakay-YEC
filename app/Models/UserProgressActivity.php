@@ -13,4 +13,9 @@ class UserProgressActivity extends Model
     {
         return $this->belongsTo(SubActivity::class, 'sub_activity_id', 'id');
     }
+
+    public function user()
+    {
+        return $this->belongsTo(User::class, 'user_id', 'id');
+    }
 }

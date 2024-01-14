@@ -18,13 +18,13 @@ class UserController extends Controller
 
     public function show($class) {
 
-        // $id = Auth::id();
+        $id = Auth::id();
         $class = Kelas::findOrFail($class);
         return $class->loadMissing(
             [
                 'category:id,category_name',
                 'class_fasil.fasil:id,fasil_name,fasil_photo,fasil_desc',
-                'class_activity.sub_activity'
+                'class_activity.sub_activity.user_progress.user'
             ]
         );
 

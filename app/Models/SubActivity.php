@@ -9,6 +9,11 @@ class SubActivity extends Model
 {
     use HasFactory;
 
+    public function class_activity()
+    {
+        return $this->belongsTo(Activity::class, 'activity_id', 'id');
+    }
+
     public function type()
     {
         return $this->belongsTo(SubActivityType::class, 'type_id', 'id');
