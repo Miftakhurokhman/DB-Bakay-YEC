@@ -15,7 +15,7 @@ class UserController extends Controller
     public function index() {
         $id = Auth::id();
         $userclass = User::findOrFail($id);
-        return $userclass->loadMissing('user_class.class:id,class_name,class_thumbnail');
+        return $userclass->loadMissing('user_class.class:id,class_name');
     }
 
     public function show($id) {
