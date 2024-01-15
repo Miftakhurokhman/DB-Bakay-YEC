@@ -3,8 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\UserProgressActivity;
-use App\Http\Requests\StoreUserProgressActivityRequest;
 use App\Http\Requests\UpdateUserProgressActivityRequest;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class UserProgressActivityController extends Controller
 {
@@ -27,9 +28,14 @@ class UserProgressActivityController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreUserProgressActivityRequest $request)
+    public function store(Request $request)
     {
-        //
+        $request->validate([
+            'answer' => 'required',
+            'sub_activity_id' => 'required'
+        ]);
+        $request['user_id'] = Auth::id();
+        UserProgressActivity::create($request->all());
     }
 
     /**
