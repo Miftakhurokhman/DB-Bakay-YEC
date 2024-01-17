@@ -19,20 +19,6 @@ class UserController extends Controller
     }
 
     public function show($id) {
-
-        // $class = Kelas::findOrFail($id);
-        // return new ClassDetailResource(
-        //     $class->loadMissing(
-        //         [
-        //             'category:id,category_name',
-        //             'class_fasil.fasil:id,fasil_name,fasil_photo,fasil_desc',
-        //             'class_activity.sub_activity.user_progress' => function($query) {
-        //                 $user = Auth::id();
-        //                 $query->where('user_id', $user);
-        //             }
-        //         ]
-        //     )
-        // );
         $user_id = Auth::id();
         $class = UserClass::where('class_id', $id)->where('user_id', $user_id)->first();
         return $class->loadMissing(
