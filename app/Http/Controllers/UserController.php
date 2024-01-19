@@ -24,6 +24,7 @@ class UserController extends Controller
             [
                 'class.category:id,category_name',
                 'class.class_fasil.fasil:id,fasil_name,fasil_photo,fasil_desc',
+                'class.class_activity.sub_activity.type:id,type_name',
                 'class.class_activity.sub_activity.user_progress' => function($query) {
                     $query->where('user_id', Auth::user()->id);
                 }
