@@ -2,10 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Kelas;
 use App\Models\User;
-use App\Http\Resources\ClassDetailResource;
 use App\Models\UserClass;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 ;
@@ -30,6 +29,18 @@ class UserController extends Controller
                 }
             ]
         );
+    }
+
+    public function update(Request $request, $id) {
+        $validated = $request->validate([
+            'rate' => 'required',
+            'ulasan' => 'required'
+        ]);
+
+        $user_id = Auth::id();
+        $class = UserClass::where('class_id', $id)->where('user_id', $user_id)->first();
+
+        $class->update($request->all());
     }
 
 
