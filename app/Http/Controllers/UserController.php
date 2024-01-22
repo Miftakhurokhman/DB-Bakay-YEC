@@ -33,10 +33,10 @@ class UserController extends Controller
     }
 
     public function update(Request $request, $id) {
-        $validated = $request->validate([
-            'rate' => 'required',
-            'ulasan' => 'required'
-        ]);
+        // $validated = $request->validate([
+        //     'rate' => 'required',
+        //     'ulasan' => 'required'
+        // ]);
 
         $user_id = Auth::id();
         $class = UserClass::where('class_id', $id)->where('user_id', $user_id)->first();

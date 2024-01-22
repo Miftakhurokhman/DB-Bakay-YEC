@@ -27,8 +27,6 @@ Route::middleware(['auth:sanctum'])->group(function () {
 
     Route::get('/me', [AuthenticationController::class, 'me']);
     Route::get('/logout', [AuthenticationController::class, 'logout']);
-
-    // Route::get('/user/progress/{id}', [UserProgressActivityController::class, 'show']);
 });
 
 Route::get('/classes',[KelasController::class, 'index']);

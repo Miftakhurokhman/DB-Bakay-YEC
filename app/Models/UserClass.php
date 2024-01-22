@@ -12,6 +12,7 @@ class UserClass extends Model
     protected $fillable = [
         'rate',
         'ulasan',
+        'progress'
     ];
 
     public function user()

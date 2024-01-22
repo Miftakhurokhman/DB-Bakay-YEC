@@ -36,6 +36,8 @@ class UserProgressActivityController extends Controller
         ]);
         $request['user_id'] = Auth::id();
         UserProgressActivity::create($request->all());
+
+        return "Success";
     }
 
     /**
