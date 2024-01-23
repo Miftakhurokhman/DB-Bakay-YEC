@@ -23,7 +23,8 @@ Route::middleware(['auth:sanctum'])->group(function () {
     Route::get('/user/classes/{id}',[UserController::class, 'show'])->middleware('class-user');
     Route::patch('/user/classes/{id}',[UserController::class, 'update'])->middleware('class-user');
 
-    Route::post('/user/classes/{id}',[UserProgressActivityController::class, 'store']);
+    Route::post('/user/classes/{id}',[UserProgressActivityController::class, 'store'])->middleware('class-user');
+    Route::post('/user/sub_activity/{id}',[UserProgressActivityController::class, 'update']);
 
     Route::get('/me', [AuthenticationController::class, 'me']);
     Route::get('/logout', [AuthenticationController::class, 'logout']);

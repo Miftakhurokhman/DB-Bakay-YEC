@@ -3,9 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\UserProgressActivity;
-use App\Http\Requests\UpdateUserProgressActivityRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 
 class UserProgressActivityController extends Controller
 {
@@ -59,9 +59,28 @@ class UserProgressActivityController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateUserProgressActivityRequest $request, UserProgressActivity $userProgressActivity)
+    public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            'answer' => 'required',
+            'sub_activity_id' => 'required'
+        ]);
+
+        $file_name = '';
+
+        if ($request->file) {
+
+            $file_name = $request->file->getClientOriginalName();
+
+            Storage::putFileAs('answer', $request->file, $file_name);
+
+        }
+        $request['user_id'] = Auth::id();
+        $request['answer'] = $file_name;
+        $request['sub_activity_id'] = $id;
+        UserProgressActivity::create($request->all());
+
+        return "Success";
     }
 
     /**
