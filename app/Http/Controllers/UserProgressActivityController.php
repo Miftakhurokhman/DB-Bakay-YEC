@@ -61,10 +61,10 @@ class UserProgressActivityController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $request->validate([
-            'answer' => 'required',
-            'sub_activity_id' => 'required'
-        ]);
+        // $request->validate([
+        //     'answer' => 'required',
+        //     'sub_activity_id' => 'required'
+        // ]);
 
         $file_name = '';
 
