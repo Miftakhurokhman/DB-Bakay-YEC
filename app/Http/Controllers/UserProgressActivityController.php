@@ -66,17 +66,18 @@ class UserProgressActivityController extends Controller
         //     'sub_activity_id' => 'required'
         // ]);
 
-        $file_name = '';
 
         if ($request->file) {
+            $file_name = '';
 
             $file_name = $request->file->getClientOriginalName();
 
             Storage::putFileAs('answer', $request->file, $file_name);
 
+            $request['answer'] = $file_name;
         }
+
         $request['user_id'] = Auth::id();
-        $request['answer'] = $file_name;
         $request['sub_activity_id'] = $id;
         UserProgressActivity::create($request->all());
 
